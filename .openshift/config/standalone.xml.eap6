@@ -16,7 +16,7 @@
 		<extension module="org.jboss.as.jdr" />
 		<extension module="org.jboss.as.jmx" />
 		<extension module="org.jboss.as.jpa" />
-    <extension module="org.jboss.as.jsf"/>
+		<extension module="org.jboss.as.jsf"/>
 		<extension module="org.jboss.as.jsr77" />
 		<extension module="org.jboss.as.logging" />
 		<extension module="org.jboss.as.mail" />
@@ -135,38 +135,6 @@
 						<allow-multiple-users/>
 					</pool>
 				</datasource>
-        <datasource jta="true" jndi-name="java:jboss/oracleDS" pool-name="oracleCP" enabled="true" use-ccm="true" statistics-enabled="true">
-          <connection-url>jdbc:oracle:thin:@localhost:49161:xe</connection-url>
-          <connection-property name="ConnectionProperties">
-          <!-- this reads in milliseconds -->
-          oracle.jdbc.ReadTimeout=330000
-          </connection-property>
-          <driver>oracleDriver</driver>
-          <pool>
-              <min-pool-size>0</min-pool-size>
-              <max-pool-size>200</max-pool-size>
-              <prefill>false</prefill>
-              <use-strict-min>true</use-strict-min>
-          </pool>
-          <security>
-              <user-name>system</user-name>
-              <password>oracle</password>
-          </security>
-          <validation>
-              <valid-connection-checker class-name="org.jboss.jca.adapters.jdbc.extensions.oracle.OracleValidConnectionChecker"/>
-              <validate-on-match>true</validate-on-match>
-              <use-fast-fail>true</use-fast-fail>
-              <stale-connection-checker class-name="org.jboss.jca.adapters.jdbc.extensions.oracle.OracleStaleConnectionChecker"/>
-              <exception-sorter class-name="org.jboss.jca.adapters.jdbc.extensions.oracle.OracleExceptionSorter"/>
-          </validation>
-          <timeout>
-              <idle-timeout-minutes>30</idle-timeout-minutes>
-          </timeout>
-          <statement>
-              <track-statements>true</track-statements>
-              <prepared-statement-cache-size>10</prepared-statement-cache-size>
-          </statement>
-        </datasource>
 				<drivers>
 					<driver name="h2" module="com.h2database.h2">
 						<xa-datasource-class>org.h2.jdbcx.JdbcDataSource
